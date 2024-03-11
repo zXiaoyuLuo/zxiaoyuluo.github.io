@@ -1,99 +1,62 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scr/style/image.css">
-    <title>我的个人博客</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .header,
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-        }
-
-        .nav {
-            background-color: #444;
-            overflow: hidden;
-        }
-
-        .nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .content {
-            padding: 20px;
-        }
-
-        .article {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-    </style>
-    <link rel="stylesheet" href="styles/nav.css">
+    <title>谭淞的个人博客</title>
+    <link rel="stylesheet" href="scr/style/style.css">
 </head>
-
 <body>
-
-    <div class="header">
+    <header>
         <h1>谭淞的小破站</h1>
-    </div>
-
-    <div class="nav">
-        <a href="index.html">首页</a>
-        <a href="html/articles.html">文章</a>
-        <a href="html/about.html">关于我</a>
-        <a href="html/contact.html">联系方式</a>
-    </div>
-    <div class="devote">
-        <img src="scr/img/wechat.JPG" alt="微信支付">
-        <img src="scr/img/alipay.JPG" alt="支付宝">
-        <img src="scr/img/wechat.JPG" alt="微信支付">
-        <img src="scr/img/alipay.JPG" alt="支付宝">
-        <img src="scr/img/wechat.JPG" alt="微信支付">
-        <br>
-    </div>
-    <div class="content">
-        <div class="article">
-            <h2>文章标题</h2>
-            <p>发布日期：2024年37日</p>
-            <p>这里是文章摘要，点击阅读更多...</p>
+        <!-- <p>个人博客</p> -->
+        <p>Welcome to my blog page</p>
+    </header>
+    <section class="contact-info">
+        <div class="info-container">
+            <div class="personal-info">
+                <h2>个人信息</h2>
+                <p>Tel：13258546709</p>
+                <p>Email：<a href="mailto:xiaoyuluowork@gmail.com">xiaoyuluowork@gmail.com</a></p>
+                <p>Blog：<a href="http://zxiaoyuluo.github.io" target="_blank">zxiaoyuluo.github.io</a></p>
+            </div>
+            <div class="profile-photo">
+                <img src="scr/img/photo.jpg" alt="谭淞">
+            </div>
         </div>
-        <div class="article">
-            <a href="#">
-                <h2>另一个文章标题</h2>
-            </a>
-            <p>发布日期：2024年3月6日</p>
-            <p>这里是另一个文章的摘要，点击阅读更多...</p>
-        </div>
-        <!-- 更多文章 -->
-    </div>
-
-    <div class="footer">
-        <p>版权所有 © 2024 SongTan</p>
-    </div>
-
+    </section>
+    
+    <section class="bio">
+        <h2>个人简介</h2>
+        <p>经济学本科生，掌握数据分析技能，对金融、银行、保险行业有深厚兴趣。在校期间，通过多个项目展现了一定的数据分析能力和对经济模型的理解。具备Python和Matlab操作经验，能够处理数据和解决问题。曾获得多项学术奖项，证明了学术实力和研究潜力。希望将理论知识应用于实践。</p>
+    </section>
+    <section class="education">
+        <h2>教育背景</h2>
+        <p>上海大学，经济学本科（大二在读）</p>
+        <p>GPA：3.34/4.00   Score：84.5/100</p>
+    </section>
+    <section class="skills">
+        <h2>技能</h2>
+        <ul>
+            <li>编程语言：可以使用Python完成小的需求</li>
+            <li>分析工具：熟练掌握MATLAB、SPSS</li>
+            <li>软件技能：具备Office基本使用能力</li>
+        </ul>
+    </section>
+    <section class="awards">
+        <h2>获奖经历</h2>
+        <ul>
+            <li><a href="#mcm2023">2023年MCM/ICM二等奖</a></li>
+            <li><a href="#shanghai-university-2023">2023年上海大学本科生学术年会二等奖</a></li>
+            <li><a href="#economics-conference-2023">2023年上海大学经济学院学术年会三等奖</a></li>
+        </ul>
+    </section>
+    <section class="projects">
+        <h2>其他经历</h2>
+        <p>个人开源项目：<a href="#opensource-project">使用python开发了一个课程表转换为日历的小工具</a>，帮助同学更方便地在日历上查看自己的课程表。目前有较小规模的同学在使用。</p>
+    </section>
+    <footer>
+        <p>版权所有 &copy; 谭淞</p>
+    </footer>
 </body>
-
 </html>
