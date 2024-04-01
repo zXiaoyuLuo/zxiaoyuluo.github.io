@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scr/style/style.css">
+    <title>Something about brew</title>
+</head>
+<body>
+    <header>
+        <h1>谭淞的小破站</h1>
+        <!-- <p>个人博客</p> -->
+        <p>Welcome to my blog page</p>
+    </header>
+
+    <p>
+        <h2>关于homebrew</h2>
+        具体内容请查看清华大学提供的<a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">镜像站内容</a>。该文章只为简单的使用
+    </p>
+
+    <p>
+        确定mac的芯片类型为intel还是apple silicon<br>
+        方法：左上角的小苹果点击关于本机即可查看芯片。
+    </p>
+
+    <p>
+        <h2>首次安装 Homebrew</h2>
+        在终端(Terminal)输入：<br>
+        xcode-select --install<br>
+        接着输入：(直接复制这五行粘贴即可)<br>
+        export HOMEBREW_INSTALL_FROM_API=1<br>
+        export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"<br>
+        export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"<br>
+        export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"<br>
+        export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"<br>
+        最后，在终端运行以下命令以安装 Homebrew ：<br>
+        git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install<br>
+        /bin/bash brew-install/install.sh<br>
+        rm -rf brew-install<br>
+        
+    </p>
+
+    <p>
+        <h2>讲brew添加到环境变量</h2>
+        命令行运行：<br>
+        uname -m<br>
+        如果输出arm64（Apple silicon的mac）输入：<br>
+        test -r ~/.bash_profile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile<br>
+        test -r ~/.zprofile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile<br>
+        如果输出x86_64（intel芯片的mac）直接跳过这步
+    </p>
+
+    <p>
+        <h2>替换上游仓库</h2>
+        # 手动设置<br>
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"<br>
+<br>
+# 注：自 brew 4.0 起，大部分 Homebrew 用户无需设置 homebrew/core 和 homebrew/cask 镜像，只需设置 HOMEBREW_API_DOMAIN 即可。<br>
+# 如果需要使用 Homebrew 的开发命令 (如 `brew cat <formula>`)，则仍然需要设置 homebrew/core 和 homebrew/cask 镜像。<br>
+# 请按需执行如下两行命令：<br>
+brew tap --custom-remote --force-auto-update homebrew/core https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git<br>
+brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git<br>
+<br>
+# 除 homebrew/core 和 homebrew/cask 仓库外的 tap 仓库仍然需要设置镜像<br>
+brew tap --custom-remote --force-auto-update homebrew/cask-fonts https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git<br>
+brew tap --custom-remote --force-auto-update homebrew/cask-versions https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-versions.git<br>
+brew tap --custom-remote --force-auto-update homebrew/command-not-found https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-command-not-found.git<br>
+brew tap --custom-remote --force-auto-update homebrew/services https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-services.git<br>
+brew update<br>
+<br>
+# 或使用下面的几行命令自动设置<br>
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"<br>
+for tap in core cask{,-fonts,-versions} command-not-found services; do<br>
+    brew tap --custom-remote --force-auto-update "homebrew/${tap}" "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-${tap}.git"<br>
+done<br>
+brew update<br>
+    </p>
+</body>
+</html>
